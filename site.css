@@ -35,12 +35,13 @@ button {
 }
 
 .hero {
-  height: 657px;
+  min-height: 100vh;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.18)), url("images/fond-accueil.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   background-position: center 59%;
+  width: 100vw;
 }
 
 .hero:after {
@@ -198,8 +199,8 @@ button {
 }
 
 #club {
-  width: 100%;
-  height: 615px;
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
   background-image: url("images/back-club.jpg");
   background-size: cover;
@@ -208,7 +209,7 @@ button {
 
 #gauche-club {
   width: 35%;
-  min-height: 670px;
+  min-height: 100%;
   position: relative;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.55)), url("images/club-bg.jpg");
   background-size: cover;
@@ -216,7 +217,7 @@ button {
 }
 
 .texte-club {
-  max-width: 690px;
+  max-width: 100%;
   padding: 43px 55px 50px 9%;
 }
 
@@ -285,7 +286,7 @@ button {
 
 #droite-club {
   width: 65%;
-  min-height: 670px;
+  min-height: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -301,22 +302,22 @@ button {
 .imgClub1 {
   width: 24%;
   height: 24%;
-  left: 56%;
-  top: 2%;
+  left: 54%;
+  top: 14%;
 }
 
 .imgClub2 {
   width: 18%;
   height: 18%;
-  right: 20%;
-  top: 27%;
+  right: 22%;
+  top: 39%;
 }
 
 .imgClub3 {
   width: 18%;
   height: 48%;
-  right: 1%;
-  bottom: 50%;
+  right: 3%;
+  bottom: 38%;
 }
 
 .club-badge {
@@ -350,7 +351,7 @@ button {
 .bouton-club {
   position: absolute;
   right: 5%;
-  bottom: 12%;
+  bottom: 4%;
   padding: 11px 17px;
   color: #fff;
   background: rgba(0, 0, 0, 0.65);
@@ -375,8 +376,8 @@ button {
 }
 
 #calendrier {
-  width: 100%;
-  height: 668px;
+  width: 100vw;
+  min-height: 100vh;
   padding: 75px 6%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.5)), url("images/back-calendrier.png");
   background-size: cover;
@@ -637,8 +638,8 @@ button {
 }
 
 #actualites {
-  width: 100%;
-  min-height: 520px;
+  width: 100vw;
+  min-height: 100vh;
   padding: 75px 6%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.92)), url("images/news-bg.jpg");
   background-size: cover;
@@ -745,7 +746,7 @@ button {
 }
 
 .footer {
-  width: 100%;
+  width: 100vw;
   padding: 23px 3%;
   background: #020202;
   border-top: 1px solid #1d1d1d;
