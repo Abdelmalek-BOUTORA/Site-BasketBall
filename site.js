@@ -50,5 +50,27 @@ certificat.addEventListener("change", () => {
 
 joinForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Votre demande d'inscription a bien été envoyée !");
+
+    const formData = new FormData(joinForm);
+
+    fetch("formulaire.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur HTTP : " + response.status);
+        }
+
+        return response.text();
+    })
+    .then(data => {
+        alert("Votre demande d'inscription a bien été envoyée !");
+        joinOverlay.classList.remove("active");
+        joinForm.reset();
+    })
+    .catch(error => {
+        console.error("Erreur :", error);
+        alert("Erreur : " + error.message);
+    });
 });
