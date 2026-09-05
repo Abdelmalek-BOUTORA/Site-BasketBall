@@ -1243,3 +1243,16 @@ button {
 .join-submit i {
   font-size: 10px;
 }
+.Entraînement {
+  width: 100%;
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: rgba(5, 5, 5, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 2px solid var(--orange);
+  border-radius: 7px;
+  transition: 0.3s;
+}
