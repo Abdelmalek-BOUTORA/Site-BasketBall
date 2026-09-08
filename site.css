@@ -416,7 +416,7 @@ button {
   margin-bottom: 13px;
 }
 
-.Entrainement {
+.Entraînement {
   width: 100%;
   min-height: 92px;
   display: flex;
@@ -430,7 +430,7 @@ button {
   transition: 0.3s;
 }
 
-.Entrainement:hover {
+.Entraînement:hover {
   transform: translateX(4px);
   border-color: rgba(255, 84, 38, 0.5);
 }
@@ -619,7 +619,7 @@ button {
   font-weight: 900;
 }
 
-.support-card button {
+.support-card a {
   position: absolute;
   left: 20px;
   bottom: 20px;
@@ -632,7 +632,7 @@ button {
   font-weight: 800;
 }
 
-.support-card button i {
+.support-card a i {
   color: var(--orange);
   margin-left: 5px;
 }

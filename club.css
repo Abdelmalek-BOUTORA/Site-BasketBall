@@ -1,0 +1,905 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: "Montserrat", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+:root {
+    --orange: #ff5426;
+    --orange-clair: #ff8b35;
+    --orange-fonce: #d93618;
+    --blanc: #fff;
+    --gris: #a5a5a5;
+    --noir: #070707;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo > i {
+    color: var(--orange);
+    font-size: 29px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-text strong {
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo-text span {
+    color: var(--orange);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    margin-top: 4px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.nav-links a {
+    color: #d0d0d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--orange);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    height: 38px;
+    padding: 0 17px;
+    border-radius: 7px;
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.player-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.join-btn {
+    border: 1px solid var(--orange);
+    background: linear-gradient(135deg, var(--orange-fonce), var(--orange-clair));
+    box-shadow: 0 8px 25px rgba(255, 84, 38, 0.22);
+}
+
+
+/* GENERAL */
+
+.section-label {
+    display: block;
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.section-number {
+    color: rgba(255, 255, 255, 0.08);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 90px;
+    line-height: 0.7;
+    font-weight: 900;
+}
+
+
+/* HERO */
+
+.club-hero {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 110px 6% 70px;
+    background-image: url("images/back-club.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.club-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.88),
+        rgba(0, 0, 0, 0.48),
+        rgba(0, 0, 0, 0.72)
+    );
+}
+
+.club-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 180px;
+    background: linear-gradient(transparent, #050505);
+}
+
+.club-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.club-hero-content h1 {
+    margin-top: 13px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(65px, 8vw, 110px);
+    line-height: 0.84;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.club-hero-content h1 span {
+    color: var(--orange);
+}
+
+.club-hero-content p {
+    color: #d5d5d5;
+    max-width: 560px;
+    margin-top: 27px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.hero-scroll {
+    position: absolute;
+    right: 6%;
+    bottom: 45px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #777;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hero-scroll i {
+    color: var(--orange);
+}
+
+
+/* HISTOIRE */
+
+.history-section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 80px 6%;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.85)),
+        url("images/club-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.history-content {
+    max-width: 1250px;
+    margin: 75px auto 0;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.history-text h2,
+.timeline-section > h2,
+.values-heading h2,
+.teams-section > h2,
+.numbers-heading h2,
+.club-cta h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 800;
+    line-height: 0.9;
+}
+
+.history-text h2 {
+    font-size: 75px;
+    letter-spacing: -3px;
+    margin-bottom: 35px;
+}
+
+.history-text h2 span,
+.timeline-section h2 span,
+.values-heading h2 span,
+.teams-section h2 span,
+.numbers-heading h2 span,
+.club-cta h2 span {
+    color: var(--orange);
+}
+
+.history-text p {
+    max-width: 510px;
+    color: #bcbcbc;
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 18px;
+}
+
+.history-image {
+    height: 600px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(0.85);
+    transition: 0.5s;
+}
+
+.history-image:hover img {
+    transform: scale(1.04);
+}
+
+
+/* TIMELINE */
+
+.timeline-section {
+    width: 100vw;
+    padding: 80px 6% 110px;
+    background: #080808;
+}
+
+.timeline-section > h2 {
+    max-width: 900px;
+    margin: 55px auto 0;
+    font-size: 75px;
+    letter-spacing: -3px;
+}
+
+.timeline {
+    max-width: 1250px;
+    margin: 85px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-right: 25px;
+}
+
+.timeline-year {
+    color: var(--orange);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.timeline-point {
+    width: 100%;
+    height: 1px;
+    position: relative;
+    margin: 20px 0 28px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.timeline-point::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--orange);
+    transform: translateY(-50%);
+}
+
+.timeline-item h3 {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.timeline-item p {
+    max-width: 240px;
+    color: #888;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* VALEURS */
+
+.values-section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 80px 6%;
+}
+
+.values-heading {
+    max-width: 1250px;
+    margin: 70px auto 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.values-heading h2 {
+    font-size: 75px;
+    letter-spacing: -3px;
+}
+
+.values-heading p {
+    max-width: 300px;
+    color: #888;
+    font-size: 11px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.values-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.value-card {
+    min-height: 320px;
+    position: relative;
+    padding: 28px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 84, 38, 0.5);
+}
+
+.value-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    border: 1px solid rgba(255, 84, 38, 0.55);
+    border-radius: 6px;
+    margin-bottom: 75px;
+}
+
+.value-number {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #444;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.value-card h3 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.value-card p {
+    color: #888;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+/* EQUIPES */
+
+.teams-section {
+    width: 100vw;
+    padding: 80px 6% 110px;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.94)),
+        url("images/back-calendrier.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.teams-section > h2 {
+    max-width: 1250px;
+    margin: 55px auto 55px;
+    font-size: 75px;
+    letter-spacing: -3px;
+}
+
+.teams-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.team-card {
+    overflow: hidden;
+    background: #090909;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 7px;
+}
+
+.team-image {
+    height: 330px;
+    overflow: hidden;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(0.7);
+    transition: 0.5s;
+}
+
+.team-card:hover .team-image img {
+    transform: scale(1.05);
+    filter: saturate(1);
+}
+
+.team-info {
+    min-height: 65px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.team-info span {
+    color: var(--orange);
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.team-info h3 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+
+/* MISSION */
+
+.mission-section {
+    min-height: 80vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 100px 6%;
+    background: url("images/club3.jpg") center/cover no-repeat;
+}
+
+.mission-overlay,
+.club-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.92),
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.8)
+        );
+}
+
+.mission-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.mission-content h2 {
+    margin: 22px 0 35px;
+    font-size: clamp(70px, 8vw, 115px);
+    letter-spacing: -4px;
+}
+
+.mission-content p {
+    max-width: 560px;
+    color: #c5c5c5;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* CHIFFRES */
+
+.numbers-section {
+    width: 100vw;
+    padding: 80px 6% 120px;
+}
+
+.numbers-heading {
+    max-width: 1250px;
+    margin: 55px auto 70px;
+}
+
+.numbers-heading h2 {
+    font-size: 75px;
+    letter-spacing: -3px;
+}
+
+.numbers-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.number-card {
+    padding: 50px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.number-card:last-child {
+    border-right: none;
+}
+
+.number-card strong {
+    display: block;
+    color: var(--orange);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 80px;
+    line-height: 0.9;
+    font-weight: 900;
+}
+
+.number-card span {
+    display: block;
+    margin-top: 14px;
+    color: #777;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* CTA */
+
+.club-cta {
+    min-height: 70vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 6%;
+    background: url("images/fond-accueil.jpeg") center/cover no-repeat;
+}
+
+.club-cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.club-cta h2 {
+    margin: 25px 0 40px;
+    font-size: clamp(70px, 9vw, 120px);
+    letter-spacing: -4px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 20px;
+    color: white;
+    background: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    transition: 0.3s;
+}
+
+.cta-button i {
+    font-size: 9px;
+}
+
+.cta-button:hover {
+    background: var(--orange-clair);
+    border-color: var(--orange-clair);
+    transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+
+.footer {
+    width: 100vw;
+    padding: 23px 3%;
+    background: #020202;
+    border-top: 1px solid #1d1d1d;
+}
+
+.footer-content {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-content p {
+    color: #666;
+    font-size: 10px;
+}
+
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: 20px;
+        margin-right: 20px;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .history-content {
+        grid-template-columns: 1fr;
+    }
+
+    .history-image {
+        height: 500px;
+    }
+
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 55px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .number-card:nth-child(1),
+    .number-card:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .number-card:nth-child(2) {
+        border-right: none;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 0 18px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .club-hero {
+        padding: 110px 7% 70px;
+    }
+
+    .club-hero-content h1 {
+        font-size: 62px;
+        letter-spacing: -2px;
+    }
+
+    .club-hero-content p {
+        font-size: 13px;
+    }
+
+    .section-top,
+    .history-section,
+    .timeline-section,
+    .values-section,
+    .teams-section,
+    .numbers-section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .section-number {
+        font-size: 60px;
+    }
+
+    .history-content {
+        margin-top: 55px;
+    }
+
+    .history-text h2,
+    .timeline-section > h2,
+    .values-heading h2,
+    .teams-section > h2,
+    .numbers-heading h2 {
+        font-size: 52px;
+        letter-spacing: -2px;
+    }
+
+    .history-image {
+        height: 390px;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        margin-top: 60px;
+    }
+
+    .values-heading {
+        display: block;
+        margin-top: 55px;
+    }
+
+    .values-heading p {
+        margin-top: 18px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teams-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-image {
+        height: 320px;
+    }
+
+    .mission-section {
+        min-height: 680px;
+        padding: 80px 18px;
+    }
+
+    .mission-content h2 {
+        font-size: 60px;
+        letter-spacing: -2px;
+    }
+
+    .numbers-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .number-card {
+        padding: 35px 10px;
+    }
+
+    .number-card strong {
+        font-size: 55px;
+    }
+
+    .number-card:nth-child(2) {
+        border-right: none;
+    }
+
+    .club-cta {
+        min-height: 600px;
+        padding: 80px 18px;
+    }
+
+    .club-cta h2 {
+        font-size: 60px;
+        letter-spacing: -2px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

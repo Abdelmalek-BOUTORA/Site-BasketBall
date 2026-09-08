@@ -34,10 +34,10 @@ $news = $conn->query(
 
     <div class="logo">
         <i class="fa-solid fa-basketball"></i>
-        <div class="logo-text">
+        <a href="#accueil" class="logo-text">
             <strong>CBA</strong>
             <span class="basketball-club">BASKETBALL CLUB</span>
-        </div>
+        </a>
     </div>
 
     <nav class="nav-links">
@@ -51,20 +51,11 @@ $news = $conn->query(
         <button class="player-btn">NOUS CONTACTER</button>
         <button class="join-btn">REJOINDRE LE CLUB</button>
     </div>
-
 </header>
-
 <div class="hero-content">
     <span class="hero-small">CBA BASKETBALL CLUB</span>
-
     <h1>L'ESPRIT D'EQUIPE,<br><span>LA PASSION DU JEU.</span></h1>
-
     <p>La passion du basket. L'envie de<br>progresser. La force du collectif.</p>
-
-    <button class="hero-button">
-        DÉCOUVRIR LE CLUB
-        <i class="fa-solid fa-arrow-right"></i>
-    </button>
 </div>
 
 </section>
@@ -139,10 +130,10 @@ $news = $conn->query(
 
         </div>
 
-        <button class="bouton-club">
+        <a href="club.html" class="bouton-club">
             EN SAVOIR PLUS
             <i class="fa-solid fa-arrow-right"></i>
-        </button>
+        </a>
 
     </div>
 
@@ -272,36 +263,25 @@ $news = $conn->query(
                 <img src="images/calendrier1.jfif" alt="Basketball">
 
                 <div class="support-overlay"></div>
-
                 <div class="support-content">
-
                     <span>NOTRE PASSION</span>
-
                     <h3>
                         CHAQUE MATCH<br>
                         EST UNE NOUVELLE<br>
                         OPPORTUNITÉ.
                     </h3>
-
                     <p>
                         VENEZ NOUS<br>
                         SOUTENIR !
                     </p>
-
                 </div>
-
-                <button>
+                <a href="calendrier.php">
                     VOIR LE CALENDRIER
                     <i class="fa-solid fa-arrow-right"></i>
-                </button>
-
+                </a>
             </div>
-
-
         </div>
-
     </div>
-
 </section>
 
 
@@ -362,7 +342,7 @@ $news = $conn->query(
 
     <div class="footer-content">
 
-        <div class="logo">
+        <a href="#accueil" class="logo">
 
             <i class="fa-solid fa-basketball"></i>
 
@@ -376,7 +356,7 @@ $news = $conn->query(
 
             </div>
 
-        </div>
+        </a>
 
         <p>
             © 2026 CBA Basketball Club. Tous droits réservés.

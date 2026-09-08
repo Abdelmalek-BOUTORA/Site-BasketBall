@@ -1,0 +1,791 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: "Montserrat", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+:root {
+    --orange: #ff5426;
+    --orange-clair: #ff8b35;
+    --orange-fonce: #d93618;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo > i {
+    color: var(--orange);
+    font-size: 29px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-text strong {
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo-text span {
+    color: var(--orange);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    margin-top: 4px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.nav-links a {
+    color: #d0d0d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--orange);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    height: 38px;
+    padding: 0 17px;
+    border-radius: 7px;
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .8px;
+}
+
+.player-btn {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.25);
+}
+
+.join-btn {
+    border: 1px solid var(--orange);
+    background: linear-gradient(
+        135deg,
+        var(--orange-fonce),
+        var(--orange-clair)
+    );
+    box-shadow: 0 8px 25px rgba(255,84,38,.22);
+}
+
+
+/* HERO */
+
+.calendar-hero {
+    position: relative;
+    width: 100vw;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 6% 90px;
+    background:
+        url("images/back-calendrier.png")
+        center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9),
+            rgba(0,0,0,.5),
+            rgba(0,0,0,.8)
+        );
+}
+
+.calendar-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 150px;
+    background: linear-gradient(transparent,#050505);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.section-label {
+    display: block;
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-content h1 {
+    margin-top: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(70px, 8vw, 110px);
+    line-height: .84;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.hero-content h1 span {
+    color: var(--orange);
+}
+
+.hero-content p {
+    max-width: 560px;
+    margin-top: 28px;
+    color: #d0d0d0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.hero-scroll {
+    position: absolute;
+    right: 6%;
+    bottom: 45px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #777;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hero-scroll i {
+    color: var(--orange);
+}
+
+
+/* SECTIONS */
+
+.calendar-section,
+.matches-section {
+    width: 100vw;
+    padding: 90px 6% 110px;
+}
+
+.matches-section {
+    background: #080808;
+}
+
+.section-head {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.section-number {
+    color: rgba(255,255,255,.07);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 90px;
+    font-weight: 900;
+    line-height: .7;
+}
+
+.section-head h2 {
+    margin-top: 20px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 75px;
+    line-height: .88;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.section-head h2 span {
+    color: var(--orange);
+}
+
+
+/* ENTRAINEMENTS */
+
+.training-list {
+    max-width: 1250px;
+    margin: 75px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.training-card {
+    min-height: 115px;
+    display: grid;
+    grid-template-columns: 95px 55px 1fr 45px;
+    align-items: center;
+    padding: 15px 25px;
+    background: #0b0b0b;
+    border: 1px solid rgba(255,255,255,.08);
+    border-left: 2px solid var(--orange);
+    border-radius: 7px;
+    transition: .3s;
+}
+
+.training-card:hover {
+    transform: translateX(5px);
+    border-color: rgba(255,84,38,.45);
+}
+
+.training-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.training-date strong {
+    color: var(--orange);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 45px;
+    line-height: .8;
+    font-weight: 900;
+}
+
+.training-date span {
+    color: #777;
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: .5px;
+}
+
+.training-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    border: 1px solid rgba(255,84,38,.4);
+    border-radius: 6px;
+}
+
+.training-info h3 {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.training-team {
+    display: block;
+    margin-top: 5px;
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.training-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 12px;
+}
+
+.training-details span {
+    color: #777;
+    font-size: 9px;
+}
+
+.training-details i {
+    margin-right: 5px;
+    color: var(--orange);
+}
+
+.training-arrow {
+    color: #444;
+    transition: .3s;
+}
+
+.training-card:hover .training-arrow {
+    color: var(--orange);
+    transform: translateX(4px);
+}
+
+
+/* MATCHS */
+
+.matches-list {
+    max-width: 1250px;
+    margin: 75px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.match-card {
+    min-height: 135px;
+    display: grid;
+    grid-template-columns: 95px 1fr 160px 50px 1fr;
+    align-items: center;
+    padding: 18px 25px;
+    background: #0b0b0b;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 7px;
+    transition: .3s;
+}
+
+.match-card:hover {
+    border-color: rgba(255,84,38,.45);
+    transform: translateY(-3px);
+}
+
+.match-date {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.match-date strong {
+    color: var(--orange);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    line-height: .8;
+}
+
+.match-date span {
+    color: #777;
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.team-opponent {
+    justify-content: flex-end;
+}
+
+.team-logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 26px;
+    border: 1px solid rgba(255,84,38,.3);
+    border-radius: 50%;
+}
+
+.opponent-logo {
+    color: #496d75;
+    border-color: rgba(73,109,117,.35);
+}
+
+.team-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-name strong {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.team-name span {
+    margin-top: 2px;
+    color: var(--orange);
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: .7px;
+}
+
+.team-opponent .team-name {
+    text-align: right;
+}
+
+.team-opponent .team-name span {
+    color: #496d75;
+}
+
+.match-center {
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(255,255,255,.08);
+    border-right: 1px solid rgba(255,255,255,.08);
+}
+
+.category {
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.match-time {
+    margin-top: 5px;
+    color: var(--orange);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.location {
+    max-width: 110px;
+    margin-top: 4px;
+    color: #666;
+    font-size: 7px;
+    text-align: center;
+}
+
+.vs {
+    color: #555;
+    font-size: 9px;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+/* EMPTY */
+
+.empty-state {
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #0b0b0b;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 7px;
+}
+
+.empty-state i {
+    color: var(--orange);
+    font-size: 25px;
+}
+
+.empty-state p {
+    color: #777;
+    font-size: 10px;
+}
+
+
+/* CTA */
+
+.calendar-cta {
+    min-height: 65vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 6%;
+    background:
+        url("images/calendrier1.jfif")
+        center/cover no-repeat;
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.9),
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.85)
+        );
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h2 {
+    margin: 22px 0 25px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(65px, 8vw, 105px);
+    line-height: .85;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.cta-content h2 span {
+    color: var(--orange);
+}
+
+.cta-content p {
+    max-width: 500px;
+    margin: auto auto 30px;
+    color: #bbb;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 20px;
+    color: white;
+    background: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    transition: .3s;
+}
+
+.cta-button i {
+    font-size: 9px;
+}
+
+.cta-button:hover {
+    background: var(--orange-clair);
+    border-color: var(--orange-clair);
+    transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+
+.footer {
+    width: 100vw;
+    padding: 23px 3%;
+    background: #020202;
+    border-top: 1px solid #1d1d1d;
+}
+
+.footer-content {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-content p {
+    color: #666;
+    font-size: 10px;
+}
+
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: 20px;
+        margin-right: 20px;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .match-card {
+        grid-template-columns: 75px 1fr 130px 35px 1fr;
+    }
+
+    .training-card {
+        grid-template-columns: 80px 50px 1fr 35px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 0 18px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .calendar-hero {
+        min-height: 700px;
+        padding: 110px 18px 80px;
+    }
+
+    .hero-content h1 {
+        font-size: 62px;
+        letter-spacing: -2px;
+    }
+
+    .section-head {
+        align-items: flex-start;
+    }
+
+    .section-number {
+        font-size: 55px;
+    }
+
+    .section-head h2 {
+        font-size: 52px;
+        letter-spacing: -2px;
+    }
+
+    .calendar-section,
+    .matches-section {
+        padding: 70px 18px 90px;
+    }
+
+    .training-list,
+    .matches-list {
+        margin-top: 55px;
+    }
+
+    .training-card {
+        grid-template-columns: 65px 45px 1fr;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .training-arrow {
+        display: none;
+    }
+
+    .training-date strong {
+        font-size: 37px;
+    }
+
+    .training-date span {
+        font-size: 7px;
+    }
+
+    .training-details {
+        gap: 8px;
+        flex-direction: column;
+    }
+
+    .match-card {
+        grid-template-columns: 65px 1fr;
+        gap: 18px;
+        padding: 22px 18px;
+    }
+
+    .match-date {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .match-center {
+        grid-column: 2;
+        grid-row: 1;
+        height: auto;
+        padding-bottom: 12px;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .team-cba {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .vs {
+        display: none;
+    }
+
+    .team-opponent {
+        grid-column: 2;
+        grid-row: 3;
+        justify-content: flex-start;
+    }
+
+    .team-opponent .team-name {
+        order: 1;
+        text-align: left;
+    }
+
+    .team-opponent .team-logo {
+        order: 2;
+    }
+
+    .calendar-cta {
+        min-height: 600px;
+        padding: 80px 18px;
+    }
+
+    .cta-content h2 {
+        font-size: 60px;
+        letter-spacing: -2px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

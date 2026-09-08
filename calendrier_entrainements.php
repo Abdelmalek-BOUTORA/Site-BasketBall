@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST["date"];
     $heure = $_POST["heure"];
     $equipes = $_POST["equipes"];
-    $sql = "INSERT INTO entrainements (date, heure, equipes)
+    $sql = "INSERT INTO calendrier_entrainements (date, heure, equipes)
             VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $date, $heure, $equipes);
@@ -20,16 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->close();
 }
-$resultat = $conn->query("SELECT * FROM entrainements ORDER BY date, heure");
+$resultat = $conn->query("SELECT * FROM calendrier_entrainements ORDER BY date, heure");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Gestion des entraînements</title>
+    <title>Calendrier - Entraînements</title>
 </head>
 <body>
-<h1>Gestion des entraînements</h1>
+<h1>Entraînements du calendrier complet</h1>
 <p><a href="dashboard.php">← Retour au tableau de bord</a></p>
 <h2>Ajouter un entraînement</h2>
 <form method="POST">
@@ -46,7 +46,7 @@ $resultat = $conn->query("SELECT * FROM entrainements ORDER BY date, heure");
 </form>
 <hr>
 <h2>Entraînements existants</h2>
-<?php while ($entrainement = $resultat->fetch_assoc()) { ?>
+<?php while ($entrainement = $resultat->fetch_assoc()): ?>
     <div>
         <p>
             <strong>Date :</strong>
@@ -60,15 +60,15 @@ $resultat = $conn->query("SELECT * FROM entrainements ORDER BY date, heure");
             <strong>Équipe :</strong>
             <?= htmlspecialchars($entrainement["equipes"]) ?>
         </p>
-        <a href="modifier_entrainement.php?id=<?= $entrainement["id"] ?>">
+        <a href="modifier_calendrier_entrainement.php?id=<?= $entrainement["id"] ?>">
             Modifier
         </a>
-        <a href="supprimer_entrainement.php?id=<?= $entrainement["id"] ?>"
+        <a href="supprimer_calendrier_entrainement.php?id=<?= $entrainement["id"] ?>"
            onclick="return confirm('Voulez-vous vraiment supprimer cet entraînement ?');">
             Supprimer
         </a>
         <hr>
     </div>
-<?php } ?>
+<?php endwhile; ?>
 </body>
 </html>
